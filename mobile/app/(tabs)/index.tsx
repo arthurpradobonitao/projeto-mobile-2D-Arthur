@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Pressable, Text, colorScheme,  Platform } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -11,44 +11,69 @@ export default function HomeScreen() {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require('@/assets/images/nubanklogo.webp')}
           style={styles.reactLogo}
         />
       }>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Olá Arthur!</ThemedText>
-        <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+        <ThemedText type="subtitle">Saldo disponível: </ThemedText>
         <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
+          R$1.234,43
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
+        <ThemedText type="subtitle">Seu dinheiro</ThemedText>
+        <Pressable style={styles.botaoum}>
+       <Text style={styles.legendabotaoum}>Meus cartões</Text>
+      </Pressable>
+      <Pressable style={styles.botaoum}>
+       <Text style={styles.legendabotaoum}>Caixinha</Text>
+      </Pressable>
+      </ThemedView>
+      <ThemedView style={styles.espacodosbotao}>
+       <ThemedView style={styles.botaocontainer}>
+        <Pressable style={styles.botao2}>
+        <Image
+         source={require('@/assets/images/logo1r.png')} 
+         style={styles.imagembotao}
+        />
+        </Pressable>
+        <Text style={[styles.botaolegenda, { color: colorScheme ==='dark'?'#fff':'#000'}]}>PIX</Text>
+       </ThemedView>
+       <ThemedView style={styles.botaocontainer}>
+        <Pressable style={styles.botao2}>
+        <Image
+         source={require('@/assets/images/logo2r.png')} 
+         style={styles.imagembotao}
+        />
+        </Pressable>
+        <Text style={[styles.botaolegenda, { color: colorScheme ==='dark'?'#fff':'#000'}]}>PAGAR</Text>
+       </ThemedView>
+       <ThemedView style={styles.botaocontainer}>
+        <Pressable style={styles.botao2}>
+        <Image
+         source={require('@/assets/images/logo3r.png')} 
+         style={styles.imagembotao}
+        />
+        </Pressable>
+        <Text style={[styles.botaolegenda, { color: colorScheme ==='dark'?'#fff':'#000'}]}>TRANS..</Text>
+       </ThemedView>
+       <ThemedView style={styles.botaocontainer}>
+        <Pressable style={styles.botao2}>
+        <Image
+         source={require('@/assets/images/logo4r.png')} 
+         style={styles.imagembotao}
+        />
+        </Pressable>
+        <Text style={[styles.botaolegenda, { color: colorScheme ==='dark'?'#fff':'#000'}]}>DEPOSITAR</Text>
+       </ThemedView>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
+        <ThemedText type="subtitle">Saiba mais</ThemedText>
+        <ThemedText>Interface criada por Arthur Mota do Prado</ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -65,10 +90,54 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
+    height: "100%",
+    width: "100%",
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  botaoum: {
+    width: "100%",
+    backgroundColor: '#9400D3', 
+    borderRadius: 8,
+    paddingVertical: 15,
+    paddingHorizontal: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 2,
+    alignSelf: 'center',
+  },
+  legendabotaoum: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  espacodosbotao: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 20,
+    gap: 16,
+  },
+  botaocontainer: {
+    alignItems: 'center',
+    marginVertical: 16,
+  },
+  botao2: {
+    backgroundColor: '#9400D3',
+    borderRadius: 10,
+    width: 70,
+    height: 70,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imagembotao: {
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+  },
+  botaolegenda: {
+    marginTop: 6,
+    fontWeight: 'bold',
+    fontSize: 14,
   },
 });
